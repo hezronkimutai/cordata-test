@@ -1,21 +1,17 @@
 import { combineReducers } from "redux";
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from "../constants/index";
+import { GET_OPEN_API_CHOICES_SUCCESS } from "../constants/index";
 
-const initialState = { enthusiasmLevel: 1 };
-export function enthusiasm(state = initialState, action) {
+const initialState = { choices: [] };
+
+export function openapi(state = initialState, action) {
   switch (action.type) {
-    case INCREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
-    case DECREMENT_ENTHUSIASM:
-      return {
-        ...state,
-        enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1),
-      };
+    case GET_OPEN_API_CHOICES_SUCCESS:
+      return { ...state, choices: action.choices };
     default:
       return state;
   }
 }
 
-const rootReducer = combineReducers({ enthusiasm });
+const rootReducer = combineReducers({ openapi });
 
 export default rootReducer;
