@@ -91,11 +91,8 @@
   margin: 10px;
   position: relative;
   min-width: 200px;
-  margin: 5px;
+  margin: 20px 1%;
   min-height: 200px;
-}
-img:target {
-  min-width: 500px;
 }
 
 a.download-text {
