@@ -24,6 +24,11 @@ export function openapi(state = initialState, action) {
         salonChoices: action.salonChoices,
         imageUrlChoices: action.imageUrlChoices,
       };
+    case "LOADING":
+      return {
+        ...state,
+        loading: action.loading,
+      };
     default:
       return state;
   }
