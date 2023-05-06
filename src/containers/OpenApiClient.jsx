@@ -1,5 +1,5 @@
 import Hello from "../components/OpenApiClient";
-import { makeOpenApiReqImages } from "../actions/getImages";
+import { makeOpenApiReqImages, setLoading } from "../actions/getImages";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -11,6 +11,7 @@ export function mapDispatchToProps(dispatch) {
   return {
     makeOpenApiReqImages: (baseTag, input) =>
       dispatch(makeOpenApiReqImages(baseTag, input)),
+    setLoading: (loading) => dispatch(setLoading(loading)),
   };
 }
 

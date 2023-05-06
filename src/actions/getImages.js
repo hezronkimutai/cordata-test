@@ -7,11 +7,11 @@ const openApiOptions = {
     Authorization: constants.OPEN_API_AUTHORIZATION,
   },
 };
-const getOpenApiBody = (prompt) => ({
+const getOpenApiBody = (prompt, image) => ({
   prompt,
-  max_tokens: 1900,
+  ...(image ? {} : { max_tokens: 1900 }),
   n: 1,
-  stop: ["\n"],
+  ...(image ? {} : { stop: ["\n"] }),
 });
 
 export const setLoading = (loading) => {
@@ -22,14 +22,15 @@ export const setLoading = (loading) => {
 };
 export const makeOpenApiReqImages = (baseTag, input) => {
   return (dispatch) => {
-    dispatch(setLoading(false));
+    dispatch(setLoading(true));
     axios
       .post(
         constants.TAB_BASE_URL,
         getOpenApiBody(
           `Generate a business name and tagline in English  ${
             baseTag ? `for an ${baseTag}` : baseTag
-          } based on the following text: "${input}"`
+          } based on the following text: "${input}"`,
+          false
         ),
         openApiOptions
       )
@@ -52,7 +53,8 @@ const generateImage = (dispatch, response, baseTag, input) =>
       getOpenApiBody(
         `Generate an image in English ${
           baseTag ? `of an ${baseTag}` : baseTag
-        } based on the following text: "${input}"`
+        } based on the following text: "${input}"`,
+        true
       ),
       openApiOptions
     )

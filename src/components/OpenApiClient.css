@@ -27,6 +27,8 @@
   font-size: 20px;
   width: 65%;
   margin: auto;
+  border-bottom: 1px solid;
+  border-radius: 5px;
 }
 .open-api-client-response-info {
   margin: 20px auto;
@@ -52,4 +54,10 @@
   display: block;
   z-index: 999;
   margin-top: -40px;
+}
+img {
+  width: 100%;
+}
+.open-api-client-loading {
+  font-size: xx-large;
 }

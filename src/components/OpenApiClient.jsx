@@ -4,7 +4,6 @@ import { useState } from "react";
 import OPenAIResponse from "./OPenAIResponse";
 import OpenAiPrompt from "./OpenAiPrompt";
 
-
 function OpenApiClient(props) {
   const { makeOpenApiReqImages, salonChoices, imageUrlChoices, loading } =
     props;
@@ -12,7 +11,6 @@ function OpenApiClient(props) {
   const initialOpenAPiInput = "African hair salon";
   const [openApiInput, setOpenApiInput] = useState(initialOpenAPiInput);
   const [businessType, setBusinessType] = useState(initialBaseTag);
-  console.log({ loading });
   const handleSubmit = (e) => {
     e.preventDefault();
     makeOpenApiReqImages(businessType, openApiInput);
@@ -24,7 +22,6 @@ function OpenApiClient(props) {
 
   const downloadName = businessType.replace(" ", "_");
 
-  console.log({env:process.env});
   return (
     <div className="open-api-client-container">
       <h1 className="header">Cordata AI Client</h1>
@@ -39,11 +36,15 @@ function OpenApiClient(props) {
         <p className="open-api-client-response-info">
           Click Submit to regenerate the response
         </p>
-        <OPenAIResponse
-          imageUrlChoices={imageUrlChoices}
-          downloadName={downloadName}
-          salonChoices={salonChoices}
-        />
+        {loading ? (
+          <p className="open-api-client-loading">Loading .....</p>
+        ) : (
+          <OPenAIResponse
+            imageUrlChoices={imageUrlChoices}
+            downloadName={downloadName}
+            salonChoices={salonChoices}
+          />
+        )}
       </div>
     </div>
   );
