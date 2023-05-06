@@ -1,14 +1,27 @@
-.hello {
-    text-align: center;
-    margin: 20px;
-    font-size: 48px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  }
-  
-  .hello button {
-      margin-left: 25px;
-      margin-right: 25px;
-      font-size: 40px;
-      min-width: 50px;
-  }
-  
+.open-api-client-container {
+  text-align: center;
+  margin: 20px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.header {
+  font-size: 48px;
+}
+
+.open-api-client-container button {
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 5px;
+  font-size: 30px;
+  min-width: 50px;
+}
+.open-api-client-textarea {
+  min-width: 60%;
+  min-height: 100px;
+  padding: 20px;
+  font-size: 20px;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+.open-api-client-response {
+  font-size: 20px;
+}
