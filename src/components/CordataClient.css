@@ -1,0 +1,168 @@
+.cordata-client-container {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 80%;
+  border: 1px solid #222;
+  border-radius: 5px;
+  margin: 35px auto;
+  padding: 5px 30px;
+  min-height: 400px;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header {
+  all: unset;
+  font-size: 60px;
+  text-align: center;
+  margin: 30px auto;
+  padding: 0;
+  display: block;
+  margin-top: 20px;
+}
+.header-2 {
+  all: unset;
+  font-size: 30px;
+  text-align: center;
+  margin: 30px auto;
+  padding: 0;
+  display: block;
+}
+
+.cordata-client-button {
+  all: unset;
+  margin: auto;
+  border-radius: 5px;
+  font-size: large;
+  min-width: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #40b8b3;
+  color: #050a08;
+  outline: none;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  margin: 30px auto;
+  display: block;
+}
+.cordata-client-textarea {
+  all: unset;
+  width: 100%;
+  min-height: 100px;
+  font-size: 18px;
+  margin: 30px auto;
+  border-radius: 5px;
+  padding: 5px 3px;
+  border: 1px solid #555;
+  word-break: break-word;
+  font-family: "Raleway", Helvetica, "Open Sans", sans-serif;
+  background-color: #111;
+  color: #d7dadc;
+  text-align: center;
+  display: block;
+}
+.cordata-client-form-container {
+  width: 80%;
+  margin: auto;
+}
+.cordata-client-response {
+  font-size: 20px;
+  width: 80%;
+  margin: auto;
+  border-bottom: 1px solid;
+  border-radius: 5px;
+}
+.cordata-client-response-info {
+  margin: 20px auto;
+  font-size: 12px;
+  font-style: italic;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 20px auto;
+}
+.image-card {
+  width: 45%;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  position: relative;
+  min-width: 200px;
+  margin: 5px;
+  min-height: 200px;
+}
+img:target {
+  min-width: 500px;
+}
+
+a.download-text {
+  position: absolute;
+  z-index: 999;
+  width: 80%;
+  display: block;
+  padding: 3px 0px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 18px;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: max-content;
+  background: #40b8b3;
+  opacity: 0.7;
+}
+
+a.download-text:hover {
+  background-color: #40b8b3;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+img {
+  width: 100%;
+}
+.cordata-client-loading {
+  font-size: xx-large;
+}
+.error-container {
+  color: #f84a4a;
+  font-size: large;
+  border-radius: 5px;
+  border: solid 1px #f84a4a;
+  width: 80%;
+  margin: auto;
+  padding: 15px 10px;
+}
+.error-container h2 {
+  margin: 5px auto;
+}
+.cordata-client-no-of-images-label {
+  margin-right: 20px;
+  font-size: 16px;
+  color: #d7dadc;
+}
+.cordata-client-text-image-tag-label {
+  font-size: 16px;
+  color: #d7dadc;
+  margin: 30px auto;
+  display: block;
+}
+.cordata-client-input {
+  all: unset;
+  font-size: 18px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 1px 3px;
+  border: 1px solid #555;
+  word-break: break-word;
+  font-family: "Raleway", Helvetica, "Open Sans", sans-serif;
+  background-color: #111;
+  color: #d7dadc;
+  text-align: center;
+}

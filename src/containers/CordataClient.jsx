@@ -1,16 +1,16 @@
-import Hello from "../components/OpenApiClient";
-import { makeOpenApiReqImages, setLoading } from "../actions/getImages";
+import Hello from "../components/CordataClient";
+import { generateImageTags, setLoading } from "../store/actions";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-  const { openapi } = store;
-  return { ...openapi };
+  const { cordata } = store;
+  return { ...cordata };
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
-    makeOpenApiReqImages: (baseTag, input) =>
-      dispatch(makeOpenApiReqImages(baseTag, input)),
+    generateImageTags: (baseTag, input) =>
+      dispatch(generateImageTags(baseTag, input)),
     setLoading: (loading) => dispatch(setLoading(loading)),
   };
 }
