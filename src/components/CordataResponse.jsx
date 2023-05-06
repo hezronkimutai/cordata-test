@@ -11,7 +11,7 @@ const CordataResponse = ({
       <h2 className="header-2">AI generated response</h2>
     )) ||
       ""}
-    <div className="image-container">
+    <div className="image-container" id="imageContainer">
       {generatedImageTagChoices.map((choice, key) => (
         <div key={`${key}-${choice.url}`} className="image-card">
           <img src={choice.url} alt={downloadName} width="800"></img>

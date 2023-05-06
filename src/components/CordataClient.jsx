@@ -3,20 +3,13 @@ import "./CordataClient.css";
 import { useState } from "react";
 import CordataResponse from "./CordataResponse";
 import CordataPrompt from "./CordataPrompt";
+import { useEffect } from "react";
+import ScrollTopButton from "./ScrollTopButton";
+import ErrorComponent from "./ErrorComponent";
 
-const ErrorComponent = ({ error }) => {
-  const errorString =
-    (error && error.response && error.response.data.error
-      ? error.response.data.error.message
-      : error.response.data) || "";
-
-  return (
-    <div className="error-container">
-      <h2>{error && error.name}</h2>
-      <p>{error && error.message}</p>
-      <div dangerouslySetInnerHTML={{ __html: errorString }}></div>
-    </div>
-  );
+export const handleScrollToView = (id) => {
+  const container = document.getElementById(id);
+  container.scrollIntoView({ behavior: "smooth" });
 };
 
 function CordataClient(props) {
@@ -42,10 +35,18 @@ function CordataClient(props) {
 
   const downloadName = formData.textImageTag.replace(" ", "_");
 
+  useEffect(() => {
+    if (generatedImageTagChoices.length) {
+      handleScrollToView("imageContainer");
+    }
+  }, [generatedImageTagChoices]);
+  console.log({ error });
   return (
-    <div className="cordata-client-container">
+    <div className="cordata-client-container" id="cordataClientContainer">
+      <ScrollTopButton />
       <h1 className="header">AI Image tag generator</h1>
-      {(error && <ErrorComponent error={error} />) || ""}
+      {(!generatedImageTagChoices.length && <ErrorComponent error={error} />) ||
+        ""}
       <div>
         <CordataPrompt
           handleSubmit={handleSubmit}

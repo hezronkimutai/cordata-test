@@ -2,7 +2,7 @@ export const OPEN_API_MODEL = "gpt-3.5-turbo-0301";
 
 export const OPEN_API_USER = "user";
 
-export const OPEN_API_AUTHORIZATION = `Bearer ${process.env.REACT_APP_OPEN_API_API_KEY}`;
+export const OPEN_API_AUTHORIZATION = `Bearer ${process.env.REACT_APP_OPEN_API_AUTHORIZATION}`;
 
 export const GENERATE_IMAGE_TAG_SUCCESS = "GENERATE_IMAGE_TAG_SUCCESS";
 

@@ -101,7 +101,7 @@ a.download-text {
   width: 80%;
   display: block;
   padding: 3px 0px;
-  color: #fff;
+  color: #d7dadc;
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
@@ -162,4 +162,14 @@ img {
   background-color: #111;
   color: #d7dadc;
   text-align: center;
+}
+.scroll-top-button {
+  all: unset;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #40b8b3;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
