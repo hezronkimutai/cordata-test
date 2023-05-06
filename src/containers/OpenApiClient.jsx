@@ -1,17 +1,16 @@
 import Hello from "../components/OpenApiClient";
-import * as actions from "../actions";
+import { makeOpenApiReqImages } from "../actions/getImages";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-  const {
-    openapi: { choices },
-  } = store;
-  return { choices };
+  const { openapi } = store;
+  return { ...openapi };
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
-    makeOpenApiReq: (input) => dispatch(actions.makeOpenApiReq(input)),
+    makeOpenApiReqImages: (baseTag, input) =>
+      dispatch(makeOpenApiReqImages(baseTag, input)),
   };
 }
 

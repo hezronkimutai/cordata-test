@@ -3,22 +3,22 @@ import "./OpenApiClient.css";
 import { useState } from "react";
 
 function OpenApiClient(props) {
-  const { makeOpenApiReq, choices } = props;
-  const initialOpenAPiInput =
-    "write a social text that talks about React in more than 200 words";
+  const { makeOpenApiReqImages, salonChoices, imageUrlChoices } = props;
+  const initialBaseTag = "African hair salon";
+  const initialOpenAPiInput = "African hair salon";
   const [openApiInput, setOpenApiInput] = useState(initialOpenAPiInput);
-  if (choices.length <= 0) {
-    // throw new Error("You could be a little more enthusiastic. :D");
-  }
+  const [businessType, setBusinessType] = useState(initialBaseTag);
+  console.log({ salonChoices, imageUrlChoices });
   const handleSubmit = (e) => {
     e.preventDefault();
-    makeOpenApiReq(openApiInput);
+    makeOpenApiReqImages(businessType, openApiInput);
   };
 
-  const handleChange = ({ preventDefault, target: { value } }) => {
-    preventDefault();
-    setOpenApiInput(value);
+  const handleChange = ({ target: { value } }) => {
+    value && setOpenApiInput(value);
   };
+
+  const downloadName = businessType.replace(" ", "_");
 
   return (
     <div className="open-api-client-container">
@@ -26,20 +26,51 @@ function OpenApiClient(props) {
       <div>
         <form onSubmit={handleSubmit}>
           <div>
+            <input
+              value={businessType}
+              type="text"
+              placeholder="Enter business type"
+              onChange={({ target: { value } }) => setBusinessType(value)}
+            />
+          </div>
+          <div>
             <textarea
               className="open-api-client-textarea"
               defaultValue={initialOpenAPiInput}
               onChange={handleChange}
             />
           </div>
-          <button onClick={() => makeOpenApiReq(openApiInput)}>SUBMIT</button>
+          <button>SUBMIT</button>
         </form>
-        {choices.length && <h2>Gpt response</h2>}
-        {choices.map((choice, key) => (
-          <p className="open-api-client-response" key={`${key}-${choice.message.content}`}>
-            {choice.message.content}
+        <p className="open-api-client-response-info">
+          Click Submit to regenerate the response
+        </p>
+        {(imageUrlChoices.length && <h2>Gpt response</h2>) || ""}
+        {salonChoices.map((choice, key) => (
+          <p className="open-api-client-response" key={`${key}-${choice.text}`}>
+            {choice.text}
           </p>
         ))}
+        <div className="image-container">
+          {imageUrlChoices.map((choice, key) => (
+            <div className="image-card">
+              <img
+                key={`${key}-${choice.url}`}
+                src={choice.url}
+                alt="Girl in a jacket"
+              ></img>
+              <a
+                download
+                alt={downloadName}
+                href={choice.url}
+                class="download-text"
+                target="_blank"
+              >
+                Download
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

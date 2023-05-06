@@ -13,9 +13,10 @@
   border-radius: 5px;
   font-size: 30px;
   min-width: 50px;
+  cursor: pointer;
 }
 .open-api-client-textarea {
-  min-width: 60%;
+  width: 65%;
   min-height: 100px;
   padding: 20px;
   font-size: 20px;
@@ -24,4 +25,31 @@
 }
 .open-api-client-response {
   font-size: 20px;
+  width: 65%;
+  margin: auto;
+}
+.open-api-client-response-info {
+  margin: 20px auto;
+  font-size: 12px;
+  font-style: italic;
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 20px auto;
+}
+.image-card {
+  width: 30%;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  position: relative;
+}
+
+.download-text {
+  display: block;
+  z-index: 999;
+  margin-top: -40px;
 }
