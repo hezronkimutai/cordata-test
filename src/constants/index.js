@@ -18,5 +18,6 @@ export const TAB_BASE_URL =
   "https://api.openai.com/v1/engines/davinci/completions";
 export const GENERATOR_BASE_URL =
   "https://api.openai.com/v1/images/generations";
+  
 
 console.log({ key: process.env.REACT_APP_OPEN_API_API_KEY });
