@@ -83,6 +83,7 @@
   justify-content: space-evenly;
   width: 80%;
   margin: 20px auto;
+  position: relative;
 }
 .image-card {
   width: 45%;
@@ -92,12 +93,17 @@
   position: relative;
   min-width: 200px;
   margin: 20px 1%;
-  min-height: 200px;
+  height: auto;
+  border: 1px solid #555;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a.download-text {
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   width: 80%;
   display: block;
   padding: 3px 0px;
@@ -112,17 +118,20 @@ a.download-text {
   transform: translate(-50%, -50%);
   height: max-content;
   background: #40b8b3;
-  opacity: 0.7;
 }
 
 a.download-text:hover {
-  background-color: #40b8b3;
+  background-color: #18413e;
   text-decoration: underline;
   opacity: 0.9;
 }
 
 img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 5px;
 }
 .cordata-client-loading {
   font-size: xx-large;
@@ -169,7 +178,37 @@ img {
   bottom: 20px;
   right: 20px;
   background: #40b8b3;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+.scroll-top-button:hover {
+  background: #113533d8;
   height: 50px;
   width: 50px;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.spinner {
+  border: 7px solid #010a0aa9;
+  border-left-color: #40b8b2a9;
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  z-index: 999;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

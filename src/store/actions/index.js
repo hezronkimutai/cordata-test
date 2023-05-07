@@ -24,8 +24,7 @@ export const setLoading = (loading) => {
     loading,
   };
 };
-// textImageTag: "",
-//     noOfimages:
+
 export const generateImageTags = (baseTag, input) => {
   return (dispatch) => {
     dispatch(setLoading(true));

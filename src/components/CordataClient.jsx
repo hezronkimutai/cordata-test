@@ -6,6 +6,7 @@ import CordataPrompt from "./CordataPrompt";
 import { useEffect } from "react";
 import ScrollTopButton from "./ScrollTopButton";
 import ErrorComponent from "./ErrorComponent";
+import Spinner from "./Spinner";
 
 export const handleScrollToView = (id) => {
   const container = document.getElementById(id);
@@ -40,9 +41,9 @@ function CordataClient(props) {
       handleScrollToView("imageContainer");
     }
   }, [generatedImageTagChoices]);
-  console.log({ error });
   return (
     <div className="cordata-client-container" id="cordataClientContainer">
+      <Spinner loading={loading} />
       <ScrollTopButton />
       <h1 className="header">AI Image tag generator</h1>
       {(!generatedImageTagChoices.length && <ErrorComponent error={error} />) ||
@@ -55,11 +56,9 @@ function CordataClient(props) {
           handleChange={handleChange}
         />
         <p className="cordata-client-response-info">
-          Click Submit to regenerate the response
+          Click on LET'S GO button to regenerate the response
         </p>
-        {loading ? (
-          <p className="cordata-client-loading">Loading .....</p>
-        ) : (
+        {!loading && (
           <CordataResponse
             generatedImageTagChoices={generatedImageTagChoices}
             downloadName={downloadName}
