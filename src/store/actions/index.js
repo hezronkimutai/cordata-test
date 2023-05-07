@@ -8,12 +8,12 @@ const cordataOptions = {
   },
 };
 
-const getCordataBody = (prompt, image, noOfimages) => ({
+const getCordataBody = (prompt, image, noOfimages, imageSize) => ({
   prompt,
   ...(image ? {} : { max_tokens: 1900 }),
   ...(!image ? {} : { model: "image-alpha-001" }),
   ...(!image ? {} : { n: Number(noOfimages) || 2 }),
-  ...(!image ? {} : { size: "256x256" }),
+  ...(!image ? {} : { size: imageSize || "1024x1024" }),
   ...(!image ? {} : { response_format: "url" }),
   ...(image ? {} : { stop: ["\n"] }),
 });
@@ -36,7 +36,8 @@ export const generateImageTags = (baseTag, input) => {
             baseTag ? `for an ${baseTag}` : baseTag
           } based on the following text: "${input.textImageTag}"`,
           false,
-          input.noOfimages
+          input.noOfimages,
+          input.imageSize
         ),
         cordataOptions
       )
@@ -60,7 +61,8 @@ const generateImage = (dispatch, response, baseTag, input) =>
           baseTag ? `of an ${baseTag}` : baseTag
         } based on the following text: "${input.textImageTag}"`,
         true,
-        input.noOfimages
+        input.noOfimages,
+        input.imageSize
       ),
       cordataOptions
     )

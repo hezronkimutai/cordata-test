@@ -1,11 +1,13 @@
 import * as React from "react";
 import "./CordataClient.css";
 
+const allowedImageSizes = ["256x256", "512x512", "1024x1024"];
 const CordataPrompt = ({
   handleSubmit,
   textImageTag,
   handleChange,
   noOfimages,
+  imageSize,
 }) => (
   <form onSubmit={handleSubmit}>
     <div className="cordata-client-form-container">
@@ -23,7 +25,7 @@ const CordataPrompt = ({
         placeholder="Enter text to generate image tag e.g Africanicty "
       />
       <label htmlFor="noOfimages" className="cordata-client-no-of-images-label">
-        Copies of images to be generated:
+        Number Of Images :
       </label>
       <input
         type="number"
@@ -36,6 +38,23 @@ const CordataPrompt = ({
         className="cordata-client-input"
         required
       ></input>
+      <label htmlFor="imageSize" className="cordata-client-image-size-label">
+        Image Size
+      </label>
+      <select
+        className="cordata-client-image-size"
+        value={imageSize}
+        name="imageSize"
+        onChange={handleChange}
+        id="select"
+        required
+      >
+        {allowedImageSizes.map((option) => (
+          <option key={option} value={option} required>
+            {option}
+          </option>
+        ))}
+      </select>
       <button className="cordata-client-button">LET"S GO</button>
     </div>
   </form>

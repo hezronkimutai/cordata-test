@@ -24,6 +24,7 @@ function CordataClient(props) {
   const [formData, setFormData] = useState({
     textImageTag: "",
     noOfimages: "1",
+    imageSize: "1024x1024",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,6 +55,7 @@ function CordataClient(props) {
           textImageTag={formData.textImageTag}
           noOfimages={formData.noOfimages}
           handleChange={handleChange}
+          imageSize={formData.imageSize}
         />
         <p className="cordata-client-response-info">
           Click on LET'S GO button to regenerate the response
