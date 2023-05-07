@@ -150,7 +150,7 @@ img {
   margin: 5px auto;
 }
 .cordata-client-no-of-images-label {
-  margin: 20px;
+  margin: 10px auto;
   font-size: 16px;
   color: #d7dadc;
   display: inline-block;
@@ -165,7 +165,7 @@ img {
 .cordata-client-input {
   all: unset;
   font-size: 18px;
-  margin: 10px auto;
+  margin: 10px 5px;
   border-radius: 5px;
   padding: 1px 3px;
   border: 1px solid #555;
@@ -176,14 +176,15 @@ img {
   text-align: center;
 }
 .cordata-client-image-size-label {
-  margin: 20px;
+  margin: 10px auto;
   font-size: 16px;
   color: #d7dadc;
   white-space: nowrap;
+  display: inline-block;
 }
 .cordata-client-image-size {
   font-size: 18px;
-  margin: 10px auto;
+  margin: 10px 5px;
   border-radius: 5px;
   padding: 1px 10px;
   border: 1px solid #555;
@@ -195,6 +196,9 @@ img {
   background: transparent;
   outline: none;
   display: inline-block;
+}
+#option {
+  background: #111;
 }
 .scroll-top-button {
   all: unset;
@@ -235,4 +239,15 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+.slave-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.slave-input {
+  width: 48%;
+  min-width: 200px;
+  margin: auto;
 }

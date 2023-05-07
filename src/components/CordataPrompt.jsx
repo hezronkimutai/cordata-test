@@ -22,39 +22,52 @@ const CordataPrompt = ({
         value={textImageTag}
         onChange={handleChange}
         name="textImageTag"
-        placeholder="Enter text to generate image tag e.g Africanicty "
+        placeholder="Enter text to generate image tag e.g Africanicty"
+        required
       />
-      <label htmlFor="noOfimages" className="cordata-client-no-of-images-label">
-        Number Of Images :
-      </label>
-      <input
-        type="number"
-        id="noOfimages"
-        name="noOfimages"
-        min="1"
-        max="510"
-        value={noOfimages}
-        onChange={handleChange}
-        className="cordata-client-input"
-        required
-      ></input>
-      <label htmlFor="imageSize" className="cordata-client-image-size-label">
-        Image Size
-      </label>
-      <select
-        className="cordata-client-image-size"
-        value={imageSize}
-        name="imageSize"
-        onChange={handleChange}
-        id="select"
-        required
-      >
-        {allowedImageSizes.map((option) => (
-          <option key={option} value={option} required>
-            {option}
-          </option>
-        ))}
-      </select>
+      <div className="slave-input-container">
+        <div className="slave-input">
+          <label
+            htmlFor="noOfimages"
+            className="cordata-client-no-of-images-label"
+          >
+            Number Of Images :
+          </label>
+          <input
+            type="number"
+            id="noOfimages"
+            name="noOfimages"
+            min="1"
+            max="10"
+            value={noOfimages}
+            onChange={handleChange}
+            className="cordata-client-input"
+            required
+          ></input>
+        </div>
+        <div className="slave-input">
+          <label
+            htmlFor="imageSize"
+            className="cordata-client-image-size-label"
+          >
+            Image Size
+          </label>
+          <select
+            className="cordata-client-image-size"
+            value={imageSize}
+            name="imageSize"
+            onChange={handleChange}
+            id="select"
+            required
+          >
+            {allowedImageSizes.map((option) => (
+              <option id="option" key={option} value={option} required>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
       <button className="cordata-client-button">LET"S GO</button>
     </div>
   </form>
